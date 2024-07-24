@@ -11,11 +11,19 @@ dotenv.config();
 // CORS is for allowing
 // .env is a file you can put private keys in while including it in the .gitignore
 
-app.get("/", function (request, response) {
-  response.json({
+app.get("/", function (requ, resp) {
+  resp.json({
     message: `"Radical simply means grasping things at the root." - Angela Davis`,
   });
 });
+
+// write post route for /users that sends back request information to the user.
+
+app.post("/users", function (requ, resp) {
+  console.log(requ.body);
+  resp.send("Cheers bro");
+});
+
 app.listen(8080, function () {
   console.log(`On port eight thousand and eighty.`);
 });
